@@ -54,7 +54,6 @@ class Game:
 
     def draw_overlay(self, title, subtitle):
         font = pygame.font.SysFont("Arial", 26, bold=True)
-        small_font = pygame.font.SysFont("Arial", 18)
         large_font = pygame.font.SysFont("Arial", 54, bold=True)
 
         overlay = pygame.Surface((self.WIDTH, self.HEIGHT), pygame.SRCALPHA)
@@ -130,7 +129,6 @@ class Game:
                             0 <= offset[0] < rocket.rect.width
                             and 0 <= offset[1] < rocket.rect.height
                         ):
-
                             if rocket_mask.get_at(offset):
                                 self.create_explosion(event.pos, "rocket")
                                 self.kill_rocket(rocket)
@@ -141,14 +139,15 @@ class Game:
 
         if self.score >= 30:
             self.win = True
+            
         if self.first_rocket:
             if current_time - self.rocket_timer >= 10000:
                 self.rockets.append(Rocket(self.school))
                 self.rocket_timer = current_time
                 self.first_rocket = False
         else:
-        # Spawn a rocket every 1 second
-            self.rocket_spawn_interval = random.randint(500, 5000)
+            # Spawn a rocket every 1 second
+            self.rocket_spawn_interval = random.choice([2000, 3000, 5000])
             if (
                 current_time - self.rocket_timer >= self.rocket_spawn_interval
                 and not self.game_over

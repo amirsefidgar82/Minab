@@ -50,22 +50,6 @@ class Rocket:
             target.rect.top + target_rect.top,
             target.rect.top + target_rect.bottom - 1
         )
-        # # Calculate direction
-        # dx = target_x - self.x
-        # dy = target_y - self.y
-
-        # angle = math.atan2(dy, dx)
-
-        # self.velocity_x = math.cos(angle) * self.speed
-        # self.velocity_y = math.sin(angle) * self.speed
-
-        # # Rotate all frames toward target
-        # self.angle = -math.degrees(angle) - 90
-
-        # self.frames = [
-        #     pygame.transform.rotate(frame, self.angle) for frame in self.frames
-        # ]
-        
         
         self.position = pygame.Vector2(self.x, self.y)
         self.target_pos = pygame.Vector2(target_x, target_y)
@@ -99,10 +83,6 @@ class Rocket:
             round(self.position.x),
             round(self.position.y)
         )
-        # self.x += self.velocity_x
-        # self.y += self.velocity_y
-
-        # self.rect.center = (int(self.x), int(self.y))
 
     def animate(self):
         now = pygame.time.get_ticks()

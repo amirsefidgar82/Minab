@@ -29,9 +29,6 @@ class School:
         self.mask_rect.x = self.rect.x
         self.mask_rect.y = self.rect.y
 
-        # self.rect.centerx -= self.mask_rect.centerx - self.rect.width // 2
-        # self.rect.bottom += self.rect.height - self.mask_rect.bottom
-
     def damage(self, screen_width, screen_height):
         self.health -= 10
         self.damage_level = min(self.damage_level + 1, 5)
